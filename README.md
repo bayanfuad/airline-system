@@ -1,2 +1,5 @@
 # airline-system
-![UML diagram](airline system.PNG)
+
+-------
+
+![UML diagram](airline system.jpg)
