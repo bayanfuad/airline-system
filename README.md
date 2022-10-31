@@ -2,4 +2,4 @@
 
 -------
 
-![UML diagram](airline system.jpg)
+![UML diagram](airlinesystem.jpg)
