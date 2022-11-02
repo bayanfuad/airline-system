@@ -1,11 +1,8 @@
-'use strict';
+'use strict'
 
-const events = require( './events.js' );
-
+const io = require( 'socket.io-client' );
+const socket = io.connect( 'http://localhost:3003' );
 const { faker } = require('@faker-js/faker');
-
-require( './system.js' );
-require( './pilot.js' );
 
 setInterval( () => {
     let city = faker.address.city();
@@ -18,9 +15,9 @@ setInterval( () => {
         destination: `${city},${country}`,
     };
     console.log( `Manager: new flight with ID '${details.flightID}' have been scheduled` );
-    events.emit( 'new-flight', details );
+    socket.emit( 'new-flight', details );
 }, 10000 );
 
-events.on( 'arrived', ( details ) => {
+socket.on( 'arrived', ( details ) => {
     console.log( `Manager: we're greatly thankful for the amazing flight, ${details.pilot}` );
 } );
